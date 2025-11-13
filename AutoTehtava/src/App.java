@@ -1,26 +1,51 @@
+import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+    auto olio1=new auto("Kia", "Rio", 60, 0);
 
-    
-    
+    olio1.jarruta();
+    olio1.kiihdyta();
+    olio1.kiihdyta();
+    olio1.naytaTiedot();
+    olio1.tankkaa();
+
     }
 }
 class auto{
     public String merkki;
     public String malli;
     public int bensaMaara;
+    public int tankkaus;
 
+        public auto(String me, String ma, int bM, int t){
+            merkki = me;
+            malli = ma;
+            bensaMaara = bM;
+            tankkaus = t;
+        }
 public void jarruta(){
-
+    System.out.println("Auto jarruttaa.");
 }
 
 public void kiihdyta(){
-
+    bensaMaara--;
+    if(bensaMaara > 0){
+        System.out.println("Auto kiihtyy.");
+    }
 }
 
 public void naytaTiedot(){
+    System.out.println("Merkki: " + merkki);
+    System.out.println("Malli: " + malli);
+    System.out.println("Bensiinia tankissa: " + bensaMaara);
+}
 
+public void tankkaa(){
+    Scanner in = new Scanner(System.in);
+    System.out.println("Paljonko haluat tankata?");
+    int tankki = Integer.parseInt(in.nextLine());
+    int yhteen = bensaMaara + tankki;
+    System.out.println("Tankissa oli: " + bensaMaara + " " + "tankkasit : " + tankki + " " + "sinulla on siis bensaa: " + yhteen);
 }
 }
 
